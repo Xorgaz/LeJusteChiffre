@@ -1,34 +1,33 @@
-# Le Juste Chiffre
-# Le but du jeu est de trouver le chiffre généré aléatoirement.
-
+# Importation / Ajout du module random
 import random
 
-def generer_nombre():
-    """
-    Retourne un nombre aléatoire entre 0 et 100.
-    """
-    return random.randint(0, 100)
+"""
+Le juste chiffre.
+"""
 
-def jouer():
-    """
-    Gère le jeu LeJusteChiffre.
-    """
-    # Générer un nombre aléatoire.
-    nombre_secret = generer_nombre()
+# Nombre généré aléatoirement entre 0 et 100
+nbaleatoire = random.randint(0, 100)
 
-    # Demander à l'utilisateur de deviner le nombre.
-    nombre_propose = input("Devinez le nombre : ")
+# Initialisation du nombre de coups
+nbcoups = 0
 
-    # Comparer le nombre proposé au nombre secret.
-    while nombre_propose != nombre_secret:
-        if nombre_propose < nombre_secret:
-            print("Le nombre est plus grand.")
-        elif nombre_propose > nombre_secret:
-            print("Le nombre est plus petit.")
-        nombre_propose = input("Devinez à nouveau : ")
+""" 
+Boucle tant que le joueur n'a pas trouvé le nombre
+"""
+while True:
+  # Demande au joueur de deviner le nombre
+  nbpropose = int(input("Proposez un nombre : "))
 
-    # Féliciter l'utilisateur s'il a trouvé le bon nombre.
-    print("Bravo ! Vous avez trouvé le nombre secret.")
+  # Nombre de coups utiliser par le joueur
+  nbcoups += 1
 
-if __name__ == "__main__":
-    jouer()
+  """
+  Comparaison du nombre proposé et du nombre à deviner
+  """
+  if nbpropose == nbaleatoire:
+    print("Bravo ! Vous avez trouvé le nombre en", nbcoups, "coups.")
+    break
+  elif nbpropose < nbaleatoire:
+    print("C'est plus grand !")
+  else:
+    print("C'est plus petit !")
