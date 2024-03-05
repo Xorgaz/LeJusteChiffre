@@ -14,3 +14,4 @@ Essaye de deviner le nombre en faisant le moins de tentatives possible! Amuse-to
 - Utiliser des versions pour chaque modification du code (v1 / v2 / v2.1 etc...)
 - Suivre les conventions de codage
   
+Pour notre projet nous avons utilisés Visual Studio Code (avec Black formatter et PyLint) ainsi que Sphinx.
