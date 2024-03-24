@@ -1,5 +1,6 @@
 import LeJusteChiffre
 from LeJusteChiffre import generer_nombre, verifier_saisie_utilisateur
+
 """Tests unitaires"""
 # Test unitaire 1 - test la saisie de l'utilisateur vérifie si nombre
 def test_saisie_utilisateur_nombre():
