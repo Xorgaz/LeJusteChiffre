@@ -1,7 +1,7 @@
 import random
 import pytest
 
-
+"""Fonctions du programme"""
 def generer_nombre():
     """Génère un nombre aléatoire entre 0 et 100."""
     return random.randint(0, 100)
