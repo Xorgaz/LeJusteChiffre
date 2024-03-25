@@ -1,32 +1,9 @@
-name: Format code with Black
-
-on:
-  push:
-    branches: 
-      - main
-      - Xorgaz
-      - Loic
-      - Alexis
-
+name: Black Formatter Action
+on: [ push ]
 jobs:
-  format:
+  linter_name:
+    name: runner / black formatter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'  # Ajuster la version Python si nécessaire
-
-      - run: pip install black
-
-      - run: black .
-
-      - name: Commit changes if needed
-        uses: Endymion/commit-action@v2
-        with:
-          message: "Format code with Black"
-          branch: main
-          push: ${{ github.event.inputs.push || false }}
-          # Optionnel: Utiliser un fichier de configuration Black spécifique
-          # config_path: .black.yml
+      - uses: actions/checkout@v4
+      - uses: rickstaa/action-black@v1
