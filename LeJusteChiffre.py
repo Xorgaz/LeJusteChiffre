@@ -24,6 +24,7 @@ def jeu_du_juste_chiffre():
     while True:
         essai = input("Devinez le nombre entre 0 et 100: ")
         if not verifier_saisie_utilisateur(essai):
+
             print("Veuillez entrer un nombre valide. SVP")
             continue 
         essai = int(essai)
@@ -31,6 +32,7 @@ def jeu_du_juste_chiffre():
             print("Le chiffre proposé est trop petit!")
         elif essai > nbalea:
             print("Le chiffre proposé est trop grand!")
+
         else:
             print("Félicitations! Vous avez deviné le nombre correctement!")
             break
