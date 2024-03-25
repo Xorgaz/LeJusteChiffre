@@ -26,9 +26,9 @@ def jeu_du_juste_chiffre():
             continue 
         essai = int(essai)
         if essai < nbalea:
-            print("Le chiffre est trop petit!")
+            print("Le chiffre proposé est trop petit!")
         elif essai > nbalea:
-            print("Le chiffre est trop grand!")
+            print("Le chiffre proposé est trop grand!")
         else:
             print("Félicitations! Vous avez deviné le nombre correctement!")
             break
