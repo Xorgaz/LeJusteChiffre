@@ -1,33 +1,55 @@
-# Importation / Ajout du module random
 import random
+import pytest
 
-"""
-Le juste chiffre.
-"""
+"""Fonctions du programme"""
+def generer_nombre():
+    """Génère un nombre aléatoire entre 0 et 100."""
+    return random.randint(0, 100)
 
-# Nombre généré aléatoirement entre 0 et 100
-nbaleatoire = random.randint(0, 100)
+def verifier_saisie_utilisateur(saisie):
+    """Vérifie si l'entrée de l'utilisateur est un nombre."""
+    try:
+        int(saisie)
+        return True
+    except ValueError:
+        return False
 
-# Initialisation du nombre de coups
-nbcoups = 0
+def jeu_du_juste_chiffre():
+    """Fonction principale du jeu."""
+    nbalea = generer_nombre()
+    print(nbalea)
+    print("Bienvenue dans le jeu du Juste Chiffre ! Vous devez deviner un nombre entre 0 et 100. L'ordinateur fournit des indications trop petit ou trop grand jusqu'à ce que vous trouviez le nombre.")
+    while True:
+        essai = input("Devinez le nombre entre 0 et 100: ")
+        if not verifier_saisie_utilisateur(essai):
+            print("Veuillez entrer un nombre valide. SVP")
+            continue 
+        essai = int(essai)
+        if essai < nbalea:
+            print("Le chiffre est trop petit!")
+        elif essai > nbalea:
+            print("Le chiffre est trop grand!")
+        else:
+            print("Félicitations! Vous avez deviné le nombre correctement!")
+            break
 
-""" 
-Boucle tant que le joueur n'a pas trouvé le nombre
-"""
-while True:
-  # Demande au joueur de deviner le nombre
-  nbpropose = int(input("Proposez un nombre : "))
+"""Tests unitaires"""
+# Test unitaire 1 - test la saisie de l'utilisateur vérifie si nombre
+def test_saisie_utilisateur_nombre():
+    assert verifier_saisie_utilisateur("123") == True
 
-  # Nombre de coups utiliser par le joueur
-  nbcoups += 1
+# Test unitaire 2 - test la saisie de l'utilisateur vérifie si il entre des lettres
+def test_saisie_utilisateur_lettre():
+    assert verifier_saisie_utilisateur("abc") == False 
 
-  """
-  Comparaison du nombre proposé et du nombre à deviner
-  """
-  if nbpropose == nbaleatoire:
-    print("Bravo ! Vous avez trouvé le nombre en", nbcoups, "coups.")
-    break
-  elif nbpropose < nbaleatoire:
-    print("C'est plus grand !")
-  else:
-    print("C'est plus petit !")
+# Test unitaire 1 - test si le nombre générer se trouve bien entre 0 et 100
+def test_generer_nombre():
+    nombre = generer_nombre()
+    assert nombre >= 0 and nombre <= 100
+
+test_saisie_utilisateur_nombre
+test_saisie_utilisateur_lettre
+test_generer_nombre
+
+#Lance le jeu
+jeu_du_juste_chiffre()
