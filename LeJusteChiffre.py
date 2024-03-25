@@ -17,17 +17,22 @@ def verifier_saisie_utilisateur(saisie):
 def jeu_du_juste_chiffre():
     """Fonction principale du jeu."""
     nbalea = generer_nombre()
+    print("Le jeu commence !")
+    print()
+
     print("Bienvenue dans le jeu du Juste Chiffre ! Vous devez deviner un nombre entre 0 et 100. L'ordinateur fournit des indications trop petit ou trop grand jusqu'à ce que vous trouviez le nombre.")
     while True:
         essai = input("Devinez le nombre entre 0 et 100: ")
         if not verifier_saisie_utilisateur(essai):
-            print("Veuillez entrer un nombre valide.")
+
+            print("Veuillez entrer un nombre valide. SVP")
             continue 
         essai = int(essai)
         if essai < nbalea:
-            print("Trop petit!")
+            print("Le chiffre proposé est trop petit!")
         elif essai > nbalea:
-            print("Trop grand!")
+            print("Le chiffre proposé est trop grand!")
+
         else:
             print("Félicitations! Vous avez deviné le nombre correctement!")
             break
