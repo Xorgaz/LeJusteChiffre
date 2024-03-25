@@ -2,7 +2,11 @@ name: Format code with Black
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
+      - Xorgaz
+      - Loic
+      - Alexis
 
 jobs:
   format:
