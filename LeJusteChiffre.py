@@ -33,6 +33,24 @@ def jeu_du_juste_chiffre():
             print("Félicitations ! Vous avez deviné le nombre correctement !")
             break
 
-# Si ce script est exécuté directement, lancez le jeu
-if __name__ == "__main__":
-    jeu_du_juste_chiffre()
+"""Tests unitaires"""
+# Test unitaire 1 - test la saisie de l'utilisateur vérifie si nombre.
+def test_saisie_utilisateur_nombre():
+    assert verifier_saisie_utilisateur("123") == True
+
+# Test unitaire 2 - test la saisie de l'utilisateur vérifie si il entre des lettres
+def test_saisie_utilisateur_lettre():
+    assert verifier_saisie_utilisateur("abc") == False 
+
+# Test unitaire 1 - test si le nombre générer se trouve bien entre 0 et 100
+def test_generer_nombre():
+    nombre = generer_nombre()
+    assert nombre >= 0 and nombre <= 100
+
+test_saisie_utilisateur_nombre
+test_saisie_utilisateur_lettre
+test_generer_nombre
+
+#Lance le jeu
+jeu_du_juste_chiffre()
+
