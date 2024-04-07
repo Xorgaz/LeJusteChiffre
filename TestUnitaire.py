@@ -10,7 +10,7 @@ def test_saisie_utilisateur_nombre():
 def test_saisie_utilisateur_lettre():
     assert verifier_saisie_utilisateur("abc") == False 
 
-# Test unitaire 1 - test si le nombre générer se trouve bien entre 0 et 100
+# Test unitaire 1 - test si le nombre générer se trouve bien entre 0 et 100.
 def test_generer_nombre():
     nombre = generer_nombre()
     assert nombre >= 0 and nombre <= 100

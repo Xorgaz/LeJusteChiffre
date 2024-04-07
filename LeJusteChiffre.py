@@ -38,7 +38,7 @@ def jeu_du_juste_chiffre():
             break
 
 """Tests unitaires"""
-# Test unitaire 1 - test la saisie de l'utilisateur vérifie si nombre
+# Test unitaire 1 - test la saisie de l'utilisateur vérifie si nombre.
 def test_saisie_utilisateur_nombre():
     assert verifier_saisie_utilisateur("123") == True
 
