@@ -1,7 +1,5 @@
 import random
-import pytest
 
-"""Fonctions du programme"""
 def generer_nombre():
     """Génère un nombre aléatoire entre 0 et 100."""
     return random.randint(0, 100)
@@ -16,25 +14,23 @@ def verifier_saisie_utilisateur(saisie):
 
 def jeu_du_juste_chiffre():
     """Fonction principale du jeu."""
-    nbalea = generer_nombre()
-    print("Le jeu commence !")
-    print()
+    nb_aleatoire = generer_nombre()
+    print("Bienvenue dans le jeu du Juste Chiffre !")
+    print("Devinez un nombre entre 0 et 100.")
 
-    print("Bienvenue dans le jeu du Juste Chiffre ! Vous devez deviner un nombre entre 0 et 100. L'ordinateur fournit des indications trop petit ou trop grand jusqu'à ce que vous trouviez le nombre.")
     while True:
-        essai = input("Devinez le nombre entre 0 et 100: ")
+        essai = input("Entrez votre proposition : ")
         if not verifier_saisie_utilisateur(essai):
+            print("Veuillez entrer un nombre valide.")
+            continue
 
-            print("Veuillez entrer un nombre valide. SVP")
-            continue 
         essai = int(essai)
-        if essai < nbalea:
-            print("Le chiffre proposé est trop petit!")
-        elif essai > nbalea:
-            print("Le chiffre proposé est trop grand!")
-
+        if essai < nb_aleatoire:
+            print("Trop petit ! Essayez encore.")
+        elif essai > nb_aleatoire:
+            print("Trop grand ! Essayez encore.")
         else:
-            print("Félicitations! Vous avez deviné le nombre correctement!")
+            print("Félicitations ! Vous avez deviné le nombre correctement !")
             break
 
 """Tests unitaires"""
@@ -57,3 +53,4 @@ test_generer_nombre
 
 #Lance le jeu
 jeu_du_juste_chiffre()
+
